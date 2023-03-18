@@ -1,9 +1,13 @@
 import React, {Component} from "react";
 
-
+import "./Navbar.css";
 
 
 class Navbar extends Component {
+  state = { clicked: false };
+  handelClick = () => {
+    this.setState({ clicked: !this.state.clicked });
+  };
     render(){  
     return(
         <nav>
@@ -74,6 +78,31 @@ class Navbar extends Component {
               </g>
             </svg>
           </a>
+          <div className="navbar-search">
+          <ul id="navbar" className={this.state.clicked ? "#navbar active" : "#navbar"}>
+            <li>
+                <a href="index.html" className="active">About us</a>
+            </li>
+            <li>
+                <a href="index.html" className="active">Events</a>
+            </li>
+            <li>
+                <a href="index.html" className="active">Nordic roaster</a>
+            </li>
+            <li>
+                <a href="index.html" className="active">Results</a>
+            </li>
+            <li>
+                <a href="index.html" className="active">Links</a>
+            </li>
+            <li>
+                <a href="index.html" className="active">Contact</a>
+            </li>
+          </ul>
+          </div>
+          <div id="mobile">
+            <i id="bar" className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
+          </div>
 </nav>
     );
 }
